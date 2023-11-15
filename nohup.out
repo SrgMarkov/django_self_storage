@@ -1,0 +1,233 @@
+CompileCommand: exclude com/intellij/openapi/vfs/impl/FilePartNodeRoot.trieDescend bool exclude = true
+2023-11-15 15:12:13,808 [   2454]   WARN - #c.i.c.ComponentStoreImpl - Duplicated scheme Light - old: Light, new Light
+2023-11-15 15:12:13,932 [   2578]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:13,947 [   2593]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:13,953 [   2599]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:13,960 [   2606]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:13,966 [   2612]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:13,971 [   2617]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:13,977 [   2623]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:13,981 [   2627]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:13,986 [   2632]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:13,990 [   2636]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:13,993 [   2639]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:13,997 [   2643]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:14,001 [   2647]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:12:14,012 [   2658]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+
+Info  | RdCoroutineScope          | 13:DefaultDispatcher-worker-2 | RdCoroutineHost overridden 
+2023-11-15 15:12:15,623 [   4269]   WARN - #c.i.i.s.download - Failed to collect suggested shared indexes. Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python": error=2, No such file or directory
+com.intellij.execution.process.ProcessNotCreatedException: Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python": error=2, No such file or directory
+	at com.intellij.execution.configurations.GeneralCommandLine.createProcess(GeneralCommandLine.java:356)
+	at com.intellij.execution.target.local.LocalTargetEnvironment.createProcess(LocalTargetEnvironment.java:129)
+	at com.jetbrains.python.packaging.PyTargetEnvironmentPackageManager.createProcess(PyTargetEnvironmentPackageManager.java:357)
+	at com.jetbrains.python.packaging.PyTargetEnvironmentPackageManager.getPythonProcessOutput(PyTargetEnvironmentPackageManager.java:310)
+	at com.jetbrains.python.packaging.PyTargetEnvironmentPackageManager.getPythonProcessResult(PyTargetEnvironmentPackageManager.java:262)
+	at com.jetbrains.python.packaging.PyTargetEnvironmentPackageManager.collectPackages(PyTargetEnvironmentPackageManager.java:197)
+	at com.jetbrains.python.packaging.PyPackageManagerImplBase.refreshAndGetPackages(PyPackageManagerImplBase.java:205)
+	at com.jetbrains.python.index.PyPackageSharedIndexSuggester.suggestRequests(PyPackageSharedIndexSuggestion.kt:45)
+	at com.intellij.indexing.shared.download.SharedIndexSuggestionService.resolveSuggestions(SharedIndexSuggestion.kt:100)
+	at com.intellij.indexing.shared.download.SharedIndexDownloadService.collectSuggestionsSuitableForDownload(SharedIndexDownloadService.kt:195)
+	at com.intellij.indexing.shared.download.SharedIndexDownloadService.access$collectSuggestionsSuitableForDownload(SharedIndexDownloadService.kt:53)
+	at com.intellij.indexing.shared.download.SharedIndexDownloadService$rescanNow$1.invoke(SharedIndexDownloadService.kt:104)
+	at com.intellij.indexing.shared.download.SharedIndexDownloadService$rescanNow$1.invoke(SharedIndexDownloadService.kt:96)
+	at com.intellij.indexing.shared.download.SharedIndexDownloadExecutor.submitPreProgressSync$lambda$2$lambda$1(SharedIndexDownloadExecutor.kt:190)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$2(CoreProgressManager.java:186)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$executeProcessUnderProgress$13(CoreProgressManager.java:604)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:679)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computeUnderProgress(CoreProgressManager.java:635)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:603)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:61)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:173)
+	at com.intellij.indexing.shared.download.SharedIndexDownloadExecutor.submitPreProgressSync$lambda$2(SharedIndexDownloadExecutor.kt:193)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at com.intellij.util.concurrency.ContextCallable.call(ContextCallable.java:29)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at com.intellij.util.concurrency.ContextRunnable.run(ContextRunnable.java:24)
+	at com.intellij.util.concurrency.BoundedTaskExecutor.doRun(BoundedTaskExecutor.java:249)
+	at com.intellij.util.concurrency.BoundedTaskExecutor.access$200(BoundedTaskExecutor.java:31)
+	at com.intellij.util.concurrency.BoundedTaskExecutor$1.executeFirstTaskAndHelpQueue(BoundedTaskExecutor.java:227)
+	at com.intellij.util.ConcurrencyUtil.runUnderThreadName(ConcurrencyUtil.java:218)
+	at com.intellij.util.concurrency.BoundedTaskExecutor$1.run(BoundedTaskExecutor.java:215)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:702)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:699)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:699)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.io.IOException: Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python": error=2, No such file or directory
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+	at com.intellij.execution.configurations.GeneralCommandLine.startProcess(GeneralCommandLine.java:432)
+	at com.intellij.execution.configurations.GeneralCommandLine.createProcess(GeneralCommandLine.java:346)
+	... 37 more
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:314)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:244)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+	... 40 more
+2023-11-15 15:12:16,131 [   4777]   WARN - #c.j.p.s.f.PythonSdkFlavor - /home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python is not executable
+2023-11-15 15:12:20,471 [   9117]   WARN - #c.j.p.s.PythonSdkUpdater - Update for SDK Python 3.11 (django_self_storage) failed
+com.intellij.execution.process.ProcessNotCreatedException: Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python": error=2, No such file or directory
+	at com.intellij.execution.configurations.GeneralCommandLine.createProcess(GeneralCommandLine.java:356)
+	at com.intellij.execution.target.local.LocalTargetEnvironment.createProcess(LocalTargetEnvironment.java:129)
+	at com.jetbrains.python.run.PythonScripts.execute(PythonScripts.kt:214)
+	at com.jetbrains.python.sdk.PyTargetsIntrospectionFacade.getInterpreterVersion(PyTargetsIntrospectionFacade.kt:68)
+	at com.jetbrains.python.sdk.PythonSdkUpdater$PyUpdateSdkTask.run(PythonSdkUpdater.java:153)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.startTask(CoreProgressManager.java:428)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.startTask(ProgressManagerImpl.java:115)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcessWithProgressAsynchronously$6(CoreProgressManager.java:478)
+	at com.intellij.openapi.progress.impl.ProgressRunner.lambda$submit$4(ProgressRunner.java:251)
+	at com.intellij.openapi.progress.ProgressManager.lambda$runProcess$0(ProgressManager.java:71)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$2(CoreProgressManager.java:186)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$executeProcessUnderProgress$13(CoreProgressManager.java:604)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:679)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computeUnderProgress(CoreProgressManager.java:635)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:603)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:61)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:173)
+	at com.intellij.openapi.progress.ProgressManager.runProcess(ProgressManager.java:71)
+	at com.intellij.openapi.progress.impl.ProgressRunner.lambda$submit$5(ProgressRunner.java:251)
+	at com.intellij.openapi.progress.impl.ProgressRunner.lambda$launchTask$18(ProgressRunner.java:465)
+	at com.intellij.openapi.progress.impl.ProgressRunner.lambda$launchTask$19(ProgressRunner.java:477)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:702)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:699)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:699)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.io.IOException: Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python": error=2, No such file or directory
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+	at com.intellij.execution.configurations.GeneralCommandLine.startProcess(GeneralCommandLine.java:432)
+	at com.intellij.execution.configurations.GeneralCommandLine.createProcess(GeneralCommandLine.java:346)
+	... 27 more
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:314)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:244)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+	... 30 more
+2023-11-15 15:12:45,917 [  34563]   WARN - #c.j.p.s.PythonSdkUpdater - Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python": error=2, No such file or directory
+2023-11-15 15:12:52,362 [  41008]   WARN - #c.i.w.p.InstalledPackagesPanel - Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python" (in directory "/home/yar/Dev/DVMN/PROJECTS/django_self_storage"): error=2, No such file or directory
+2023-11-15 15:13:01,998 [  50644]   WARN - #c.i.u.x.Binding - no accessors for com.intellij.openapi.projectRoots.Sdk
+2023-11-15 15:13:02,002 [  50648]   WARN - #c.i.u.x.Binding - no accessors for java.time.LocalTime
+CompileCommand: exclude com/intellij/openapi/vfs/impl/FilePartNodeRoot.trieDescend bool exclude = true
+2023-11-15 15:13:08,168 [   2504]   WARN - #c.i.c.ComponentStoreImpl - Duplicated scheme Light - old: Light, new Light
+2023-11-15 15:13:08,353 [   2689]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,369 [   2705]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,375 [   2711]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,382 [   2718]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,388 [   2724]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,394 [   2730]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,399 [   2735]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,404 [   2740]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,410 [   2746]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,415 [   2751]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,420 [   2756]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,424 [   2760]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,429 [   2765]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+2023-11-15 15:13:08,446 [   2782]   WARN - #c.i.e.t.TargetBasedSdks - SDK target configuration data is absent
+
+Info  | RdCoroutineScope          | 50:DefaultDispatcher-worker-32 | RdCoroutineHost overridden 
+2023-11-15 15:13:10,243 [   4579]   WARN - #c.i.i.s.download - Failed to collect suggested shared indexes. Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python": error=2, No such file or directory
+com.intellij.execution.process.ProcessNotCreatedException: Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python": error=2, No such file or directory
+	at com.intellij.execution.configurations.GeneralCommandLine.createProcess(GeneralCommandLine.java:356)
+	at com.intellij.execution.target.local.LocalTargetEnvironment.createProcess(LocalTargetEnvironment.java:129)
+	at com.jetbrains.python.packaging.PyTargetEnvironmentPackageManager.createProcess(PyTargetEnvironmentPackageManager.java:357)
+	at com.jetbrains.python.packaging.PyTargetEnvironmentPackageManager.getPythonProcessOutput(PyTargetEnvironmentPackageManager.java:310)
+	at com.jetbrains.python.packaging.PyTargetEnvironmentPackageManager.getPythonProcessResult(PyTargetEnvironmentPackageManager.java:262)
+	at com.jetbrains.python.packaging.PyTargetEnvironmentPackageManager.collectPackages(PyTargetEnvironmentPackageManager.java:197)
+	at com.jetbrains.python.packaging.PyPackageManagerImplBase.refreshAndGetPackages(PyPackageManagerImplBase.java:205)
+	at com.jetbrains.python.index.PyPackageSharedIndexSuggester.suggestRequests(PyPackageSharedIndexSuggestion.kt:45)
+	at com.intellij.indexing.shared.download.SharedIndexSuggestionService.resolveSuggestions(SharedIndexSuggestion.kt:100)
+	at com.intellij.indexing.shared.download.SharedIndexDownloadService.collectSuggestionsSuitableForDownload(SharedIndexDownloadService.kt:195)
+	at com.intellij.indexing.shared.download.SharedIndexDownloadService.access$collectSuggestionsSuitableForDownload(SharedIndexDownloadService.kt:53)
+	at com.intellij.indexing.shared.download.SharedIndexDownloadService$rescanNow$1.invoke(SharedIndexDownloadService.kt:104)
+	at com.intellij.indexing.shared.download.SharedIndexDownloadService$rescanNow$1.invoke(SharedIndexDownloadService.kt:96)
+	at com.intellij.indexing.shared.download.SharedIndexDownloadExecutor.submitPreProgressSync$lambda$2$lambda$1(SharedIndexDownloadExecutor.kt:190)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$2(CoreProgressManager.java:186)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$executeProcessUnderProgress$13(CoreProgressManager.java:604)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:679)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computeUnderProgress(CoreProgressManager.java:635)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:603)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:61)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:173)
+	at com.intellij.indexing.shared.download.SharedIndexDownloadExecutor.submitPreProgressSync$lambda$2(SharedIndexDownloadExecutor.kt:193)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at com.intellij.util.concurrency.ContextCallable.call(ContextCallable.java:29)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at com.intellij.util.concurrency.ContextRunnable.run(ContextRunnable.java:24)
+	at com.intellij.util.concurrency.BoundedTaskExecutor.doRun(BoundedTaskExecutor.java:249)
+	at com.intellij.util.concurrency.BoundedTaskExecutor.access$200(BoundedTaskExecutor.java:31)
+	at com.intellij.util.concurrency.BoundedTaskExecutor$1.executeFirstTaskAndHelpQueue(BoundedTaskExecutor.java:227)
+	at com.intellij.util.ConcurrencyUtil.runUnderThreadName(ConcurrencyUtil.java:218)
+	at com.intellij.util.concurrency.BoundedTaskExecutor$1.run(BoundedTaskExecutor.java:215)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:702)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:699)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:699)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.io.IOException: Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python": error=2, No such file or directory
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+	at com.intellij.execution.configurations.GeneralCommandLine.startProcess(GeneralCommandLine.java:432)
+	at com.intellij.execution.configurations.GeneralCommandLine.createProcess(GeneralCommandLine.java:346)
+	... 37 more
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:314)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:244)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+	... 40 more
+2023-11-15 15:13:11,322 [   5658]   WARN - #c.j.p.s.f.PythonSdkFlavor - /home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python is not executable
+2023-11-15 15:13:15,199 [   9535]   WARN - #c.j.p.s.PythonSdkUpdater - Update for SDK Python 3.11 (django_self_storage) failed
+com.intellij.execution.process.ProcessNotCreatedException: Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python": error=2, No such file or directory
+	at com.intellij.execution.configurations.GeneralCommandLine.createProcess(GeneralCommandLine.java:356)
+	at com.intellij.execution.target.local.LocalTargetEnvironment.createProcess(LocalTargetEnvironment.java:129)
+	at com.jetbrains.python.run.PythonScripts.execute(PythonScripts.kt:214)
+	at com.jetbrains.python.sdk.PyTargetsIntrospectionFacade.getInterpreterVersion(PyTargetsIntrospectionFacade.kt:68)
+	at com.jetbrains.python.sdk.PythonSdkUpdater$PyUpdateSdkTask.run(PythonSdkUpdater.java:153)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.startTask(CoreProgressManager.java:428)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.startTask(ProgressManagerImpl.java:115)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcessWithProgressAsynchronously$6(CoreProgressManager.java:478)
+	at com.intellij.openapi.progress.impl.ProgressRunner.lambda$submit$4(ProgressRunner.java:251)
+	at com.intellij.openapi.progress.ProgressManager.lambda$runProcess$0(ProgressManager.java:71)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$2(CoreProgressManager.java:186)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$executeProcessUnderProgress$13(CoreProgressManager.java:604)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:679)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computeUnderProgress(CoreProgressManager.java:635)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:603)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:61)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:173)
+	at com.intellij.openapi.progress.ProgressManager.runProcess(ProgressManager.java:71)
+	at com.intellij.openapi.progress.impl.ProgressRunner.lambda$submit$5(ProgressRunner.java:251)
+	at com.intellij.openapi.progress.impl.ProgressRunner.lambda$launchTask$18(ProgressRunner.java:465)
+	at com.intellij.openapi.progress.impl.ProgressRunner.lambda$launchTask$19(ProgressRunner.java:477)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:702)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:699)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:699)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.io.IOException: Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python": error=2, No such file or directory
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1143)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1073)
+	at com.intellij.execution.configurations.GeneralCommandLine.startProcess(GeneralCommandLine.java:432)
+	at com.intellij.execution.configurations.GeneralCommandLine.createProcess(GeneralCommandLine.java:346)
+	... 27 more
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:314)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:244)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1110)
+	... 30 more
+2023-11-15 15:13:16,685 [  11021]   WARN - #c.i.w.p.InstalledPackagesPanel - Cannot run program "/home/yar/Dev/DVMN/PROJECTS/django_self_storage/venv/bin/python" (in directory "/home/yar/Dev/DVMN/PROJECTS/django_self_storage"): error=2, No such file or directory
+2023-11-15 15:13:53,725 [  48061]   WARN - #c.i.u.x.Binding - no accessors for com.intellij.openapi.projectRoots.Sdk
+2023-11-15 15:13:53,728 [  48064]   WARN - #c.i.u.x.Binding - no accessors for java.time.LocalTime
