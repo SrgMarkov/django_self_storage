@@ -37,12 +37,12 @@ class BoxX(models.Model):
     create_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     end_date = models.DateTimeField(blank=True, null=True)
     involved = models.BooleanField(default=False, verbose_name='Задействован')
-    box_qr_code = models.ImageField(upload_to='images_qr')
+    box_qr_code = models.ImageField(upload_to='images_qr', blank=True, null=True)
 
-    def save(self, *args, **kwargs):
-        img = qrcode.make(self.box_number)
-        box_qr_code = img.save(f"images_qr/{self.box_number}.png")
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     img = qrcode.make(self.box_number)
+    #     box_qr_code = img.save(f"images_qr/{self.box_number}.png")
+    #     super().save(*args, **kwargs)
 
     def __str__(self):
         return f'№{self.box_number} дата создания {self.create_date}'
