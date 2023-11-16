@@ -14,6 +14,7 @@ def add_months(sourcedate, months):
 
 
 class Stock(models.Model):
+    name = models.CharField(max_length=100, verbose_name='Наименование',default='')
     address = models.CharField(max_length=400, verbose_name='Адрес склада')
     property = models.CharField(max_length=400, verbose_name='Характеристика, свойства склада')
     capacity = models.PositiveBigIntegerField(null=True, default=0)
@@ -36,8 +37,9 @@ class BoxX(models.Model):
     # create_date = models.DateTimeField(auto_now_add=True, blank=True, null=True, default=datetime.datetime.now())
     create_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     end_date = models.DateTimeField(blank=True, null=True)
-    involved = models.BooleanField(default=False, verbose_name='Задействован')
+    rented = models.BooleanField(default=False, verbose_name='Задействован')
     box_qr_code = models.ImageField(upload_to='images_qr', blank=True, null=True)
+    price = models.FloatField(verbose_name='Цена аренды', default=0)
 
     # def save(self, *args, **kwargs):
     #     img = qrcode.make(self.box_number)
@@ -63,4 +65,8 @@ class UserProfile(models.Model):
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
 
+class Lead(models.Model):
+    address = models.CharField(max_length=400, verbose_name='Адрес')
+    eMail = models.CharField(max_length=100, verbose_name='Почта')
+    delivery = models.BooleanField(default=False, verbose_name='Доставка')
 
