@@ -5,6 +5,7 @@ import qrcode
 from datetime import datetime
 import datetime, calendar
 
+
 def add_months(sourcedate, months):
     month = sourcedate.month - 1 + months
     year = sourcedate.year + month // 12
@@ -50,6 +51,7 @@ class BoxX(models.Model):
     class Meta:
         verbose_name = 'Бокс'
         verbose_name_plural = 'Боксы'
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
