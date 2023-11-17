@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 import qrcode
 from datetime import datetime
 import datetime, calendar
+from django.db.models.signals import post_save, post_delete, pre_save
+
 
 
 def add_months(sourcedate, months):
@@ -15,6 +17,7 @@ def add_months(sourcedate, months):
 
 
 class Stock(models.Model):
+    name = models.CharField(max_length=100, verbose_name='Наименование',default='')
     address = models.CharField(max_length=400, verbose_name='Адрес склада')
     property = models.CharField(max_length=400, verbose_name='Характеристика, свойства склада')
     capacity = models.PositiveBigIntegerField(null=True, default=0)
@@ -34,11 +37,11 @@ class BoxX(models.Model):
     box_number = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name='Номер бокса')
     capacity = models.PositiveBigIntegerField(null=True, default=0)
     boxx = models.ForeignKey(Stock, related_name='stock_box', verbose_name='Склад', blank=True,  on_delete=models.CASCADE)
-    # create_date = models.DateTimeField(auto_now_add=True, blank=True, null=True, default=datetime.datetime.now())
     create_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     end_date = models.DateTimeField(blank=True, null=True)
-    involved = models.BooleanField(default=False, verbose_name='Задействован')
+    rented = models.BooleanField(default=False, verbose_name='Задействован')
     box_qr_code = models.ImageField(upload_to='images_qr', blank=True, null=True)
+    price = models.FloatField(verbose_name='Цена аренды', default=0)
 
     # def save(self, *args, **kwargs):
     #     img = qrcode.make(self.box_number)
@@ -65,4 +68,8 @@ class UserProfile(models.Model):
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
 
+class Lead(models.Model):
+    address = models.CharField(max_length=400, verbose_name='Адрес')
+    eMail = models.CharField(max_length=100, verbose_name='Почта')
+    delivery = models.BooleanField(default=False, verbose_name='Доставка')
 
