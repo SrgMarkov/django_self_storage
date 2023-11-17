@@ -7,15 +7,10 @@ env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECRET_KEY = env('SECRET_KEY')
-# DEBUG = env.bool('DEBUG', False)
-SECRET_KEY='django-insecure-r8mv$(ph#j7k6qgvc&q0)ymo20#@h*8s$cp9fu1s%##*wx#2cx'
-print(SECRET_KEY)
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env.bool('DEBUG', False)
 
-DEBUG=True
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', ['127.0.0.1', 'localhost'])
-print(ALLOWED_HOSTS)
-
 
 
 INSTALLED_APPS = [
@@ -108,3 +103,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+1
