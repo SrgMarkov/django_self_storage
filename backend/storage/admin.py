@@ -11,12 +11,7 @@ class StockAdmin(admin.ModelAdmin):
 @admin.register(BoxX)
 class BoxXAdmin(admin.ModelAdmin):
     list_display = ('box_number', 'create_date')
-
-    def create_data_display(self, obj):
-        return obj.create_time.strftime("%B %d, %Y")
-
-    create_data_display.short_description = 'Дата'
-
+    readonly_fields = ('box_qr_code',)
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):

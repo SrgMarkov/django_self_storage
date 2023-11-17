@@ -19,16 +19,13 @@ class Stock(models.Model):
     capacity = models.PositiveBigIntegerField(null=True, default=0)
 
     def __str__(self):
-        return f'{self.address} - {self.property} - {self.capacity}'
+        return f'{self.name} {self.address} [{self.property} - {self.capacity}]'
 
     class Meta:
         verbose_name = 'Склад'
         verbose_name_plural = 'Склады'
 
 class BoxX(models.Model):
-    """
-        по номеру бокса - можно потом QR сделать...
-    """
     box_number = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name='Номер бокса')
     capacity = models.PositiveBigIntegerField(null=True, default=0)
     boxx = models.ForeignKey(Stock, related_name='stock_box', verbose_name='Склад', blank=True,  on_delete=models.CASCADE)
