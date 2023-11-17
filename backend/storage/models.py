@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 import qrcode
 from datetime import datetime
 import datetime, calendar
+from django.db.models.signals import post_save, post_delete, pre_save
+
 
 def add_months(sourcedate, months):
     month = sourcedate.month - 1 + months
@@ -34,7 +36,6 @@ class BoxX(models.Model):
     box_number = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name='Номер бокса')
     capacity = models.PositiveBigIntegerField(null=True, default=0)
     boxx = models.ForeignKey(Stock, related_name='stock_box', verbose_name='Склад', blank=True,  on_delete=models.CASCADE)
-    # create_date = models.DateTimeField(auto_now_add=True, blank=True, null=True, default=datetime.datetime.now())
     create_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     end_date = models.DateTimeField(blank=True, null=True)
     rented = models.BooleanField(default=False, verbose_name='Задействован')
