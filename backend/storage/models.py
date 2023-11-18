@@ -9,7 +9,16 @@ from django.db.models import EmailField
 from django.db.models.signals import pre_save, post_save
 from self_storage.settings import BASE_DIR
 
+
 IMAGE_QRCODE_DIR = 'images_qr'
+
+
+def add_months(sourcedate, months):
+    month = sourcedate.month - 1 + months
+    year = sourcedate.year + month // 12
+    month = month % 12 + 1
+    day = min(sourcedate.day, calendar.monthrange(year, month)[1])
+    return datetime.date(year, month, day)
 
 
 class Stock(models.Model):
@@ -54,6 +63,7 @@ def boxx_pre_save_receiver(sender, instance, *args, **kwargs):
     instance.box_qr_code = UploadedFile(file=open(path_image_file, 'rb'))
 
 pre_save.connect(boxx_pre_save_receiver, sender=BoxX)
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

@@ -6,8 +6,10 @@ env = Env()
 env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY=env.str("SECRET_KEY")
+
+SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', False)
+
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', ['127.0.0.1', 'localhost'])
 
 
@@ -101,3 +103,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
