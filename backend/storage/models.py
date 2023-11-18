@@ -1,6 +1,9 @@
 import os
 import pathlib
 import uuid
+from calendar import calendar
+from datetime import datetime
+
 from django.db import models
 from django.contrib.auth.models import User
 import qrcode
@@ -34,6 +37,7 @@ class Stock(models.Model):
         verbose_name = 'Склад'
         verbose_name_plural = 'Склады'
 
+
 class BoxX(models.Model):
     box_number = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name='Номер бокса')
     capacity = models.PositiveBigIntegerField(null=True, default=0)
@@ -57,7 +61,7 @@ class BoxX(models.Model):
     class Meta:
         verbose_name = 'Бокс'
         verbose_name_plural = 'Боксы'
-        
+
 def boxx_pre_save_receiver(sender, instance, *args, **kwargs):
     path_image_file = os.path.join(BASE_DIR, IMAGE_QRCODE_DIR, f'{instance.box_number}.png')
     instance.box_qr_code = UploadedFile(file=open(path_image_file, 'rb'))
@@ -76,6 +80,7 @@ class UserProfile(models.Model):
     class Meta:
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
+
 
 class Lead(models.Model):
     address = models.CharField(max_length=400, verbose_name='Адрес')
