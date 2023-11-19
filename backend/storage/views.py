@@ -1,11 +1,12 @@
 from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
+from django.db.models import Min
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from .forms import RegisterUserForm, LoginUserForm
-from .models import Stock
+from .models import Stock, BoxX
 
 
 class RegisterUser(CreateView):
@@ -54,6 +55,11 @@ def index(request):
 
 def boxes(request):
     stocks = Stock.objects.all()
+    for stock in stocks:
+        min_price = BoxX.objects.filter(stock=stock).aggregate(Min('price'))
+        stock.min_price = int(min_price['price__min'])
+        stock.total_boxes = BoxX.objects.filter(stock=stock).count()
+        stock.free_boxes = BoxX.objects.filter(stock=stock, rented=False).count()
     return render(request, 'storage/boxes.html', context={'stocks': stocks})
 
 

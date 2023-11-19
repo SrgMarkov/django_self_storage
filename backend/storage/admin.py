@@ -10,7 +10,7 @@ class StockAdmin(admin.ModelAdmin):
 
 @admin.register(BoxX)
 class BoxXAdmin(admin.ModelAdmin):
-    list_display = ('box_number', 'create_date')
+    list_display = ('box_number', 'stock', 'create_date')
     readonly_fields = ('box_qr_code',)
 
 @admin.register(UserProfile)
