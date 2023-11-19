@@ -9,8 +9,8 @@ from .forms import RegisterUserForm, LoginUserForm
 
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
-    template_name = 'registration.html'
-    success_url = reverse_lazy('auth')
+    template_name = 'user/registration.html'
+    success_url = reverse_lazy('storage:auth')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -19,32 +19,32 @@ class RegisterUser(CreateView):
 
 class LoginUser(LoginView):
     form_class = LoginUserForm
-    template_name = 'auth.html'
+    template_name = 'user/auth.html'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         return dict(list(context.items()))
 
     def get_success_url(self):
-        return redirect('lk')
+        return reverse_lazy('storage:lk')
 
 
 def logout_user(request):
     logout(request)
     request.session.clear()
-    return redirect('index')
+    return redirect('storage:index')
 
 
 def auth(request):
-    return render(request, 'auth.html')
+    return render(request, 'user/auth.html')
 
 
 def registration(request):
-    return render(request, 'registration.html')
+    return render(request, 'user/registration.html')
 
 
 def lk(request):
-    return render(request, 'lk.html')
+    return render(request, 'user/lk.html')
 
 
 def index(request):
@@ -57,3 +57,7 @@ def boxes(request):
 
 def faq(request):
     return render(request, 'storage/faq.html')
+
+
+def price(request):
+    return render(request,'storage/price.html')

@@ -12,7 +12,6 @@ from django.db.models import EmailField
 from django.db.models.signals import pre_save, post_save
 from self_storage.settings import BASE_DIR
 
-
 IMAGE_QRCODE_DIR = 'images_qr'
 
 
@@ -25,7 +24,7 @@ def add_months(sourcedate, months):
 
 
 class Stock(models.Model):
-    name = models.CharField(max_length=100, verbose_name='Наименование',default='')
+    name = models.CharField(max_length=100, verbose_name='Наименование', default='')
     address = models.CharField(max_length=400, verbose_name='Адрес склада')
     property = models.CharField(max_length=400, verbose_name='Характеристика, свойства склада')
     capacity = models.PositiveBigIntegerField(null=True, default=0)
@@ -41,7 +40,8 @@ class Stock(models.Model):
 class BoxX(models.Model):
     box_number = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name='Номер бокса')
     capacity = models.PositiveBigIntegerField(null=True, default=0)
-    boxx = models.ForeignKey(Stock, related_name='stock_box', verbose_name='Склад', blank=True,  on_delete=models.CASCADE)
+    boxx = models.ForeignKey(Stock, related_name='stock_box', verbose_name='Склад', blank=True,
+                             on_delete=models.CASCADE)
     create_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     end_date = models.DateTimeField(blank=True, null=True)
     rented = models.BooleanField(default=False, verbose_name='Задействован')
@@ -62,9 +62,11 @@ class BoxX(models.Model):
         verbose_name = 'Бокс'
         verbose_name_plural = 'Боксы'
 
+
 def boxx_pre_save_receiver(sender, instance, *args, **kwargs):
     path_image_file = os.path.join(BASE_DIR, IMAGE_QRCODE_DIR, f'{instance.box_number}.png')
     instance.box_qr_code = UploadedFile(file=open(path_image_file, 'rb'))
+
 
 pre_save.connect(boxx_pre_save_receiver, sender=BoxX)
 
@@ -86,4 +88,3 @@ class Lead(models.Model):
     address = models.CharField(max_length=400, verbose_name='Адрес')
     eMail = models.EmailField(max_length=150, default="", null=True, blank=True, verbose_name='Почта')
     delivery = models.BooleanField(default=False, verbose_name='Доставка')
-
