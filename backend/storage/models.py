@@ -45,7 +45,7 @@ class BoxX(models.Model):
     create_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     end_date = models.DateTimeField(blank=True, null=True)
     rented = models.BooleanField(default=False, verbose_name='Задействован')
-    box_qr_code = models.ImageField(upload_to=IMAGE_QRCODE_DIR, blank=True, null=True)
+    stock_qr_code = models.ImageField(upload_to=IMAGE_QRCODE_DIR, blank=True, null=True)
     price = models.FloatField(verbose_name='Цена аренды', default=0)
 
     def save(self, *args, **kwargs):
