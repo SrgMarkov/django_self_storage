@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from .forms import RegisterUserForm, LoginUserForm
+from .models import Stock
 
 
 class RegisterUser(CreateView):
@@ -52,7 +53,8 @@ def index(request):
 
 
 def boxes(request):
-    return render(request, 'storage/boxes.html')
+    stocks = Stock.objects.all()
+    return render(request, 'storage/boxes.html', context={'stocks': stocks})
 
 
 def faq(request):
