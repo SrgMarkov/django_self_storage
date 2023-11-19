@@ -1,5 +1,4 @@
 from django.contrib import admin
-# from backend.storage.models import Stock, BoxX, UserProfile
 from storage.models import Stock, BoxX, UserProfile, Lead
 
 
@@ -10,8 +9,8 @@ class StockAdmin(admin.ModelAdmin):
 
 @admin.register(BoxX)
 class BoxXAdmin(admin.ModelAdmin):
-    list_display = ('box_number', 'boxx', 'create_date')
-    readonly_fields = ('stock_qr_code',)
+    list_display = ('box_number', 'stock', 'create_date')
+    readonly_fields = ('box_qr_code',)
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):

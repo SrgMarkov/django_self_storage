@@ -40,12 +40,12 @@ class Stock(models.Model):
 class BoxX(models.Model):
     box_number = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name='Номер бокса')
     capacity = models.PositiveBigIntegerField(null=True, default=0)
-    boxx = models.ForeignKey(Stock, related_name='stock_box', verbose_name='Склад', blank=True,
+    stock = models.ForeignKey(Stock, related_name='stock_box', verbose_name='Склад', blank=True,
                              on_delete=models.CASCADE)
     create_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     end_date = models.DateTimeField(blank=True, null=True)
     rented = models.BooleanField(default=False, verbose_name='Задействован')
-    stock_qr_code = models.ImageField(upload_to=IMAGE_QRCODE_DIR, blank=True, null=True)
+    box_qr_code = models.ImageField(upload_to=IMAGE_QRCODE_DIR, blank=True, null=True)
     price = models.FloatField(verbose_name='Цена аренды', default=0)
 
     def save(self, *args, **kwargs):
