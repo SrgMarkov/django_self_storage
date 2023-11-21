@@ -11,7 +11,7 @@ from django.core.files.uploadedfile import UploadedFile
 from django.db.models.signals import pre_save
 from self_storage.settings import BASE_DIR
 
-IMAGE_QRCODE_DIR = 'media/images_qr'
+IMAGE_QRCODE_DIR = 'images_qr'
 
 
 def add_months(sourcedate, months):
