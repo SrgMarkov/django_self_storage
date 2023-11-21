@@ -3,6 +3,7 @@ import pathlib
 import uuid
 from calendar import calendar
 from datetime import datetime
+from phonenumber_field.modelfields import PhoneNumberField
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -120,8 +121,21 @@ class UserProfile(models.Model):
 
 
 class Lead(models.Model):
-    address = models.CharField(max_length=400, verbose_name='Адрес')
+    address = models.CharField(
+        max_length=400,
+        verbose_name='Адрес',
+        null=True,
+        blank=True)
     eMail = models.EmailField(
-        max_length=150, default='', null=True, blank=True, verbose_name='Почта'
-    )
-    delivery = models.BooleanField(default=False, verbose_name='Доставка')
+        max_length=150,
+        default="",
+        null=True,
+        blank=True,
+        verbose_name='Почта')
+    phone = PhoneNumberField(
+        verbose_name='Телефон',
+        null=True,
+        blank=True,)
+    delivery = models.BooleanField(
+        default=False,
+        verbose_name='Необходима доставка?')

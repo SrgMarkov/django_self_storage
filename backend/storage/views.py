@@ -9,7 +9,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 
 from .forms import LoginUserForm, RegisterUserForm
-from .models import BoxX, Stock
+from .models import BoxX, Stock, Lead
 
 
 class RegisterUser(CreateView):
@@ -73,6 +73,11 @@ def faq(request):
 
 
 def price(request):
+    email = request.POST.get('email', '')
+    address = request.POST.get('address', None)
+    phone = request.POST.get('phone', None)
+    delivery = True if address else False
+    Lead.objects.create(address=address, eMail=email, delivery=delivery, phone=phone)
     return render(request, 'storage/price.html')
 
 
