@@ -1,5 +1,4 @@
 from django.contrib import admin
-# from backend.storage.models import Stock, BoxX, UserProfile
 from storage.models import Stock, BoxX, UserProfile, Lead
 
 

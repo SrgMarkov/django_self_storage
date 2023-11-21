@@ -53,6 +53,7 @@ class BoxX(models.Model):
         verbose_name='Номер бокса',
     )
     capacity = models.PositiveBigIntegerField(null=True, default=0)
+
     stock = models.ForeignKey(
         Stock,
         related_name='boxes',
