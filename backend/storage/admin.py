@@ -9,8 +9,10 @@ class StockAdmin(admin.ModelAdmin):
 
 @admin.register(BoxX)
 class BoxXAdmin(admin.ModelAdmin):
-    list_display = ('box_number', 'stock', 'create_date')
+    list_display = ('box_number', 'stock', 'end_date')
     readonly_fields = ('box_qr_code',)
+    change_list_template = "admin/boxx_change_list.html"
+
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
