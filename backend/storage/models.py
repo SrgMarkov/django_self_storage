@@ -24,13 +24,21 @@ def add_months(sourcedate, months):
 
 
 class Stock(models.Model):
-    name = models.CharField(max_length=100, verbose_name='Наименование', default='')
+    name = models.CharField(
+        max_length=100, verbose_name='Наименование', default=''
+    )
     address = models.CharField(max_length=400, verbose_name='Адрес склада')
-    property = models.CharField(max_length=400, verbose_name='Характеристика, свойства склада')
+    property = models.CharField(
+        max_length=400, verbose_name='Характеристика, свойства склада'
+    )
     capacity = models.PositiveBigIntegerField(null=True, default=0)
+    slug = models.SlugField(max_length=200, blank=True)
+    photo_path = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
-        return f'{self.name} {self.address} [{self.property} - {self.capacity}]'
+        return (
+            f'{self.name} {self.address} [{self.property} - {self.capacity}]'
+        )
 
     class Meta:
         verbose_name = 'Склад'
@@ -38,20 +46,40 @@ class Stock(models.Model):
 
 
 class BoxX(models.Model):
-    box_number = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name='Номер бокса')
+    box_number = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False,
+        verbose_name='Номер бокса',
+    )
     capacity = models.PositiveBigIntegerField(null=True, default=0)
-    stock = models.ForeignKey(Stock, related_name='stock_box', verbose_name='Склад', blank=True,
-                             on_delete=models.CASCADE)
-    create_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
+    stock = models.ForeignKey(
+        Stock,
+        related_name='boxes',
+        verbose_name='Склад',
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+    )
+    create_date = models.DateTimeField(
+        auto_now_add=True, blank=True, null=True
+    )
     end_date = models.DateTimeField(blank=True, null=True)
     rented = models.BooleanField(default=False, verbose_name='Задействован')
-    box_qr_code = models.ImageField(upload_to=IMAGE_QRCODE_DIR, blank=True, null=True)
+    box_qr_code = models.ImageField(
+        upload_to=IMAGE_QRCODE_DIR, blank=True, null=True
+    )
     price = models.FloatField(verbose_name='Цена аренды', default=0)
 
     def save(self, *args, **kwargs):
-        pathlib.Path(os.path.join(BASE_DIR, IMAGE_QRCODE_DIR)).mkdir(parents=True, exist_ok=True)
+        pathlib.Path(os.path.join(BASE_DIR, IMAGE_QRCODE_DIR)).mkdir(
+            parents=True, exist_ok=True
+        )
         img = qrcode.make(self.box_number)
-        path_image_file = os.path.join(BASE_DIR, IMAGE_QRCODE_DIR, f'{self.box_number}.png')
+        path_image_file = os.path.join(
+            BASE_DIR, IMAGE_QRCODE_DIR, f'{self.box_number}.png'
+        )
         img.save(path_image_file)
         super().save(*args, **kwargs)
 
@@ -64,7 +92,9 @@ class BoxX(models.Model):
 
 
 def boxx_pre_save_receiver(sender, instance, *args, **kwargs):
-    path_image_file = os.path.join(BASE_DIR, IMAGE_QRCODE_DIR, f'{instance.box_number}.png')
+    path_image_file = os.path.join(
+        BASE_DIR, IMAGE_QRCODE_DIR, f'{instance.box_number}.png'
+    )
     instance.box_qr_code = UploadedFile(file=open(path_image_file, 'rb'))
 
 
@@ -73,7 +103,13 @@ pre_save.connect(boxx_pre_save_receiver, sender=BoxX)
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    boxx = models.ForeignKey(BoxX, related_name='user_box', verbose_name='ячейка', blank=True, on_delete=models.CASCADE)
+    boxx = models.ForeignKey(
+        BoxX,
+        related_name='user_box',
+        verbose_name='ячейка',
+        blank=True,
+        on_delete=models.CASCADE,
+    )
     address = models.CharField(max_length=400, verbose_name='Адрес клиента')
 
     def __str__(self):
@@ -86,5 +122,7 @@ class UserProfile(models.Model):
 
 class Lead(models.Model):
     address = models.CharField(max_length=400, verbose_name='Адрес')
-    eMail = models.EmailField(max_length=150, default="", null=True, blank=True, verbose_name='Почта')
+    eMail = models.EmailField(
+        max_length=150, default='', null=True, blank=True, verbose_name='Почта'
+    )
     delivery = models.BooleanField(default=False, verbose_name='Доставка')

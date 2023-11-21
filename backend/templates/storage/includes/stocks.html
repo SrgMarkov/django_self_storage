@@ -1,0 +1,36 @@
+<article class="mt-header">
+  <h1 class="text-center fw-bold SelfStorage_green mb-5">Аренда боксов</h1>
+  <h6 class="text-center SelfStorage_grey">Арендуйте склад индивидуального хранения по уникальной цене прямо сейчас</h6>
+  <a href="#BOX" id="toBox" class="d-none"></a>
+  <ul class="nav nav-pills mb-3 d-flex justify-content-between" id="boxes-links" role="tablist">
+    {% for stock in stocks %}
+      <li class="nav-item flex-grow-1 mx-2" role="presentation">
+        <a href="#BOX" class="row text-decoration-none py-3 px-4 mt-5 SelfStorage__boxlink" id="pills-{{ stock.slug }}-tab" data-bs-toggle="pill" data-bs-target="#pills-{{ stock.slug }}" role="tab" aria-controls="pills-{{ stock.slug }}" aria-selected="true">
+          <div class="col-12 col-lg-3 d-flex justify-content-center">
+            <img src="{{ stock.photo_path }}" alt="" class="mb-3 mb-lg-0" />
+          </div>
+          <div class="col-12 col-md-4 col-lg-3 d-flex flex-column justify-content-center">
+            <h4 class="text-center">{{ stock.name }}</h4>
+            <h6 class="text-center">{{ stock.address }}</h6>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3 d-flex flex-column justify-content-center">
+            <h4 class="text-center">{{ stock.free_boxes }} из {{ stock.total_boxes }}</h4>
+            <h6 class="text-center">Боксов свободно</h6>
+          </div>
+          <div class="col-12 col-md-4 col-lg-3 d-flex flex-column justify-content-center">
+            <h4 class="text-center SelfStorage_green">от {{ stock.min_price }} ₽</h4>
+            <h6 class="text-center">{{ stock.property }}</h6>
+            <!-- <h6 class="text-center SelfStorage_orange">Осталось мало боксов</h6> -->
+          </div>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <script>
+    {% for stock in stocks %}
+      document.getElementById('pills-{{ stock.slug }}-tab').addEventListener('click', () => {
+        document.getElementById('toBox').click()
+      })
+    {% endfor %}
+  </script>
+</article>
