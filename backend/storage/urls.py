@@ -13,6 +13,7 @@ urlpatterns = [
     path('forget/', views.RegisterUser.as_view(), name='forget'),
     path('logout/', views.logout_user, name='logout'),
     path('lk/', views.lk, name='lk'),
+    path('send_emails/', views.send_emails, name='send_emails')
 ]
 
 

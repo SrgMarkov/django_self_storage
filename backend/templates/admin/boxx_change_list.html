@@ -1,0 +1,12 @@
+{% extends 'admin/change_list.html' %}
+  {% block object-tools %}
+    <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+      <div style="margin: 5px 5px 5px 5px;  display: block" >
+        <form action="{% url 'storage:send_emails' %}" method="POST">
+          {% csrf_token %}
+            <input type="submit" value="Отправить email с уведомлением о завершении срока аренды" />
+        </form>
+      </div>
+    </div>
+  {{ block.super }}
+{% endblock %}

@@ -1,12 +1,15 @@
+from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
+from django.core.management import call_command
 from django.db.models import Min
-from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 
-from .forms import RegisterUserForm, LoginUserForm
-from .models import Stock, BoxX
+from .forms import LoginUserForm, RegisterUserForm
+from .models import BoxX, Stock
 
 
 class RegisterUser(CreateView):
@@ -59,7 +62,9 @@ def boxes(request):
         min_price = BoxX.objects.filter(stock=stock).aggregate(Min('price'))
         stock.min_price = int(min_price['price__min'])
         stock.total_boxes = BoxX.objects.filter(stock=stock).count()
-        stock.free_boxes = BoxX.objects.filter(stock=stock, rented=False).count()
+        stock.free_boxes = BoxX.objects.filter(
+            stock=stock, rented=False
+        ).count()
     return render(request, 'storage/boxes.html', context={'stocks': stocks})
 
 
@@ -68,4 +73,17 @@ def faq(request):
 
 
 def price(request):
-    return render(request,'storage/price.html')
+    return render(request, 'storage/price.html')
+
+
+def send_emails(request):
+    call_command('notify_owners_of_rent_term_ending')
+
+    messages.success(
+        request,
+        (
+            'Система прошла циклом по боксам и отправила'
+            ' уведомления тем, у кого истекает срок через месяц'
+        ),
+    )
+    return HttpResponseRedirect(reverse('admin:storage_boxx_changelist'))
