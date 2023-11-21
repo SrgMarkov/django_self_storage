@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import logout
+from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
 from django.core.management import call_command
 from django.db.models import Min
@@ -9,7 +10,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 
 from .forms import LoginUserForm, RegisterUserForm
-from .models import BoxX, Stock, Lead
+from .models import BoxX, Stock, Lead, UserProfile
 
 
 class RegisterUser(CreateView):
@@ -49,7 +50,13 @@ def registration(request):
 
 
 def lk(request):
-    return render(request, 'user/lk.html')
+    user = User.objects.get(username=request.user.username)
+    profile = UserProfile.objects.filter(user=user)
+    if profile and profile.boxx:
+        context = {'box': profile.boxx}
+    else:
+        context = {'box': 'На данный момент нет арендованных боксов'}
+    return render(request, 'user/lk.html', context=context)
 
 
 def index(request):
