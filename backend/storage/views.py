@@ -51,11 +51,19 @@ def registration(request):
 
 def lk(request):
     user = User.objects.get(username=request.user.username)
-    profile = UserProfile.objects.filter(user=user)
-    if profile and profile.boxx:
-        context = {'box': profile.boxx}
-    else:
-        context = {'box': 'На данный момент нет арендованных боксов'}
+    try:
+        profile = UserProfile.objects.get(user=user)
+        if profile and profile.boxx:
+            boxx = BoxX.objects.get(box_number=profile.boxx.box_number)
+            context = {'box': boxx.box_number,
+                       'start_date': boxx.create_date,
+                       'end_date': boxx.end_date,
+                       'price': boxx.price,
+                       }
+        else:
+            context = {'box': 'На данный момент нет арендованных боксов'}
+    except UserProfile.DoesNotExist:
+        context = {'box': 'Вы еще не арендовали у нас боксы'}
     return render(request, 'user/lk.html', context=context)
 
 

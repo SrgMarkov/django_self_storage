@@ -6,13 +6,16 @@
   <div class="col-12 col-lg-6 mb-3 mb-lg-0">
     <h1 class="fw-bold SelfStorage_green mb-5">Личный кабинет | {{user.username}}</h1>
     <h4 class="fw-lighter SelfStorage_grey mb-5">Ваши арендованные боксы:</h4>
-      {{ user }}
+      <p>Номер бокса - {{ box }}</p>
+      <p>Начало аренды - {{ start_date }}</p>
+      <p>Окончание аренды - {{ end_date }}</p>
+      <p>Стоимость - {{ price }}</p>
+      <hr>
       <br>
       <br>
     <a href="{% url 'storage:logout' %}" class="SelfStorage_orange">Выйти</a>
   </div>
 </article>
-
 
 
 {% endblock %}
