@@ -72,12 +72,12 @@ class BoxX(models.Model):
     price = models.FloatField(verbose_name='Цена аренды', default=0)
 
     def save(self, *args, **kwargs):
-        pathlib.Path(os.path.join(BASE_DIR, IMAGE_QRCODE_DIR)).mkdir(
+        pathlib.Path(os.path.join(BASE_DIR, 'media', IMAGE_QRCODE_DIR)).mkdir(
             parents=True, exist_ok=True
         )
         img = qrcode.make(self.box_number)
         path_image_file = os.path.join(
-            BASE_DIR, IMAGE_QRCODE_DIR, f'{self.box_number}.png'
+            BASE_DIR, 'media',  IMAGE_QRCODE_DIR, f'{self.box_number}.png'
         )
         img.save(path_image_file)
         super().save(*args, **kwargs)
@@ -92,7 +92,7 @@ class BoxX(models.Model):
 
 def boxx_pre_save_receiver(sender, instance, *args, **kwargs):
     path_image_file = os.path.join(
-        BASE_DIR, IMAGE_QRCODE_DIR, f'{instance.box_number}.png'
+        BASE_DIR, 'media',  IMAGE_QRCODE_DIR, f'{instance.box_number}.png'
     )
     instance.box_qr_code = UploadedFile(file=open(path_image_file, 'rb'))
 
